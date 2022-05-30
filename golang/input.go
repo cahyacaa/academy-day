@@ -24,7 +24,12 @@ func greeting(input string, name string) {
 }
 
 func main() {
-	number := os.Args[1]
+	arguments := os.Args
+	if len(arguments) < 2 {
+		fmt.Println("Invalid number of arguments")
+		os.Exit(0)
+	}
+	number := arguments[1]
 	fmt.Println("Your name please? Press the enter key when done.")
 	var scanner *bufio.Scanner = bufio.NewScanner(os.Stdin)
 	scanner.Scan()
